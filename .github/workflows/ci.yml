@@ -26,5 +26,5 @@ jobs:
         run: mvn -B install -DskipTests
 
       - name: Build & publish to Maven repo
-        if: contains(github.ref, "release")
+        if: github.event_name == 'release' && github.event.action == 'created'
         run: mvn -B deploy -DskipTests
