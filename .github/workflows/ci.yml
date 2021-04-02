@@ -22,7 +22,7 @@ jobs:
           servers: '[{ "id": "github-ccaoa", "username": "ccaoa-bot", "password": "${{ secrets.MVN_REPO_TOKEN }}" }]'
 
       - name: Build
-        if: github.ref != 'refs/heads/master'
+        if: github.ref != 'refs/heads/main'
         run: mvn -B install -DskipTests
 
       - name: Build & publish to Maven repo
