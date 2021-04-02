@@ -4,6 +4,7 @@ on: [push]
 
 jobs:
   ci-pipeline:
+    name: CI Pipeline
     runs-on: ubuntu-latest
     steps:
       - name: Check out code
@@ -22,7 +23,7 @@ jobs:
           servers: '[{ "id": "github-ccaoa", "username": "ccaoa-bot", "password": "${{ secrets.MVN_REPO_TOKEN }}" }]'
 
       - name: Build
-        if: github.ref != 'refs/heads/main'
+        if: github.event_name != 'release'
         run: mvn -B install -DskipTests
 
       - name: Build & publish to Maven repo
