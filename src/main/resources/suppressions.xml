@@ -10,4 +10,6 @@
     files="."/>
   <suppress checks="AbbreviationAsWordInName"
     files="."/>
+  <suppress checks="CustomImportOrder"
+    files="."/>
 </suppressions>
